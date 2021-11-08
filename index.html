@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="jquery.js"></script>
+        <script src="salary.js"></script>
+        <link src="stylesheet.css" type="text/class" href="stylesheet.css"></link>
+        <title>Salaray Calculator</title>
+    </head>
+
+    <body>
+        <form>
+            <h1>Salary Calculator</h1>
+            <h2>Add Employee</h2>
+            <input id="FirstName" type="text" placeholder="First Name"/>
+            <input id="lastName"  type="text" placeholder="Last Name"/>
+            <input id="id" type="text" placeholder="ID"/>
+            <input id="title" type="text" placeholder="Title"/>
+            <input id="annaulSalary" type="number" placeholder="Annaul Salary"/>
+            <button id="submitButton">Submit</button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Annaul Salary</th>
+                </tr> 
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Jen</td>
+                    <td>Barber</td>
+                    <td>4521</td>
+                    <td>Team Lead</td>
+                    <td class="income">$80,000</td>
+                    <td><button id="deleteButton">Delete</button></td>   
+                </tr>
+                <tr>
+                    <td>Maurice</td>
+                    <td>Moss</td>
+                    <td>8724</td>
+                    <td>Support Team</td>
+                    <td class="income">$58,000</td>
+                    <td><button id="deleteButton">Delete</button></td>   
+                </tr>
+                <tr>
+                    <td>Roy</td>
+                    <td>Smith</td>
+                    <td>9623</td>
+                    <td>Quality Assurance</td>
+                    <td class="income">$48,000</td>
+                    <td><button id="deleteButton">Delete</button></td>  
+                </tr>
+            </tbody>
+        </table>
+
+
+
+
+
+    </body>
+</html>
