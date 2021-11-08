@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <meta charset="UTF-8">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Salaray Calculator</title>
         <script src="jquery.js"></script>
         <script src="salary.js"></script>
-        <link src="stylesheet.css" type="text/class" href="stylesheet.css"></link>
-        <title>Salaray Calculator</title>
+        <link rel="stylesheet" type="text/class" href="styles.css">
     </head>
-
     <body>
         <form>
             <h1>Salary Calculator</h1>
             <h2>Add Employee</h2>
-            <input id="FirstName" type="text" placeholder="First Name"/>
+            <input id="firstName" type="text" placeholder="First Name"/>
             <input id="lastName"  type="text" placeholder="Last Name"/>
             <input id="id" type="text" placeholder="ID"/>
             <input id="title" type="text" placeholder="Title"/>
             <input id="annaulSalary" type="number" placeholder="Annaul Salary"/>
             <button id="submitButton">Submit</button>
         </form>
-
         <table>
             <thead>
                 <tr>
@@ -32,8 +30,7 @@
                     <th>Annaul Salary</th>
                 </tr> 
             </thead>
-
-            <tbody>
+            <tbody id="salaryTable">
                 <tr>
                     <td>Jen</td>
                     <td>Barber</td>
@@ -60,10 +57,8 @@
                 </tr>
             </tbody>
         </table>
-
-
-
-
-
+        <div>
+            <div class="monthlyIncome">Total Monthly <span class="aveDisplay">$$</span></div>
+        </div>
     </body>
 </html>
