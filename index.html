@@ -7,19 +7,20 @@
         <title>Salaray Calculator</title>
         <script src="jquery.js"></script>
         <script src="salary.js"></script>
-        <link rel="stylesheet" type="text/class" href="styles.css">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <form>
-            <h1>Salary Calculator</h1>
-            <h2>Add Employee</h2>
-            <input id="firstName" type="text" placeholder="First Name"/>
-            <input id="lastName"  type="text" placeholder="Last Name"/>
-            <input id="id" type="text" placeholder="ID"/>
-            <input id="title" type="text" placeholder="Title"/>
-            <input id="annaulSalary" type="number" placeholder="Annaul Salary"/>
-            <button id="submitButton">Submit</button>
-        </form>
+        <h1>Salary Calculator</h1>
+
+        <h2>Add Employee</h2>
+        <input id="firstName" type="text" placeholder="First Name"/>
+        <input id="lastName"  type="text" placeholder="Last Name"/>
+        <input id="id" type="text" placeholder="ID"/>
+        <input id="title" type="text" placeholder="Title"/>
+        <input id="annaulSalary" type="number" placeholder="Annaul Salary"/>
+        <button id="submitButton">Submit</button>
+
+        <h3>Employees</h3>
         <table>
             <thead>
                 <tr>
@@ -36,7 +37,7 @@
                     <td>Barber</td>
                     <td>4521</td>
                     <td>Team Lead</td>
-                    <td class="income">$80,000</td>
+                    <td>$80,000</td>
                     <td><button id="deleteButton">Delete</button></td>   
                 </tr>
                 <tr>
@@ -44,7 +45,7 @@
                     <td>Moss</td>
                     <td>8724</td>
                     <td>Support Team</td>
-                    <td class="income">$58,000</td>
+                    <td>$58,000</td>
                     <td><button id="deleteButton">Delete</button></td>   
                 </tr>
                 <tr>
@@ -52,13 +53,14 @@
                     <td>Smith</td>
                     <td>9623</td>
                     <td>Quality Assurance</td>
-                    <td class="income">$48,000</td>
+                    <td>$48,000</td>
                     <td><button id="deleteButton">Delete</button></td>  
                 </tr>
             </tbody>
+            <tfoot> 
+                <tr></tr>
+            </tfoot>
         </table>
-        <div>
-            <div class="monthlyIncome">Total Monthly <span class="aveDisplay">$$</span></div>
-        </div>
+        <p class="monthlyIncome">Total Monthly</p>
     </body>
 </html>

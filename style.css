@@ -1,16 +1,13 @@
 body {
-    background-color: seashell;
+    background-color:seashell;
 }
 
-table,
-th,
-td {
+table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
 }
 
-th,
-td {
+th, td {
     padding: 4px;
     text-align: center;
 }
@@ -21,13 +18,14 @@ th {
 
 tr:nth-child(even) {
     background-color: lightgrey;
-    color: black;
 }
 
 tr:nth-child(odd) {
     background-color: limegreen;
 }
 
-.monthlyIncome {
-    text-align: right;
+tfoot{
+    height: 25px !important;
+    background-color: whitesmoke;
+    border: 1px solid black;
 }
