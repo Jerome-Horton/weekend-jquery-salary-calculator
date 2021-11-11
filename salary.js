@@ -9,7 +9,7 @@ function readyNow(){
     renderTable(employees);
     renderTotalSalary(employees);
     $('#submitButton').on('click', employeeTable);
-    $('#salaryTable').on('click', '#delete-button', deleteNewEmployee);
+    $('#salaryTable').on('click', '.deleteButton', deleteNewEmployee);
 }
 // create an object to contain the information from the input fields.
 function employeeTable(){
@@ -45,7 +45,7 @@ function employeeTable(){
             `<tr>
             <td>${employee.firstName}</td>
             <td>${employee.lastName}</td>
-            <td>${employee.id}</td>
+            <td id="removeInfo">${employee.id}</td>
             <td>${employee.title}</td>
             <td>$${employee.annualSalary }</td>
             <td><button class="deleteButton">Delete</button></td>
@@ -78,16 +78,11 @@ function employeeTable(){
 // Fucntion delete=button to delete employee from table
     function deleteNewEmployee() {
         console.log("Delete Button is working!");
-        let employeeID = $(this).parent().parent().attr('id');
-        console.log(employeedID);
-        employeeID = (employeeID);
-        console.log(employeeID);
-        $(this).parent().parent().remove();
-        let index = employees.findIndex(function (employee) {
-            return employee.id === employeeID;
-        });
+        let deletingNow = $(this).closest('tr').find('#removeInfo').text();
+        index = employees.findIndex(function (item) {
+            return item.id == deletingNow;
+          });
         employees.splice(index, 1);
         renderTable(employees);
+        renderTotalSalary();
     }
-
-renderTotalSalary();
