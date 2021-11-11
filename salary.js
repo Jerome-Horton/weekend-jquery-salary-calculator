@@ -1,60 +1,94 @@
 $(document).ready(readyNow);
 console.log('JQ');
 
+let employees = [];
+let totalSalary = 0;
+
 function readyNow(){
-    $('#submitButton').on('click', newInfo);
-    $('#salaryTable').on('click', '.deleteButton', deleteEmployeeInfo);
-    $('#calculateTotal').on('click', '.annualSalary', deleteEmployeeInfo);
+    console.log('jQuery Ready');
+    renderTable(employees);
+    renderTotalSalary(employees);
+    $('#submitButton').on('click', employeeTable);
+    $('#salaryTable').on('click', '#delete-button', deleteNewEmployee);
 }
-
-let totalSalary = [80000, 58000, 48000];
-
-// create a function to pass on the new info from the subtmit button.
-function newInfo(event){
-    console.log('Submit new info!');
 // create an object to contain the information from the input fields.
+function employeeTable(){
+    let firstName = $('#firstName').val();
+    let lastName = $('#lastName').val();
+    let id = $('#id').val();
+    let title = $('#title').val();
+    let annualSalary = $('#annualSalary').val();
+
     let addEmployee = {
-        firstName: $('#firstName').val(),
-        lastName: $('#lastName').val(),
-        id: $('#id').val(),
-        title: $('#title').val(),
-        annualSalary: Number($('#annualSalary').val()) 
+        firstName: firstName,
+        lastName: lastName,
+        id: id,
+        title: title,
+        annualSalary:Number(annualSalary)  
     }
-// Push the salary information from input fields to the array to calculate total monthly income.
-    totalSalary.push(addEmployee.annualSalary);
+// Push employee information from input fields to the array
+    employees.push(addEmployee);
+    $('#firstName').val('');
+    $('#lastName').val('');
+    $('#id').val('');
+    $('#title').val('');
+    $('#annualSalary').val('');
+// declared functions to render table, calculate salary, and establish total salary.
+    calculateTotalSalary(totalSalary)
+    renderTable(employees)
+    renderTotalSalary()
 
-//Append submit button to calculate monthly salary &
-//append all employees information to the DOM (employee table)
-    $('#salaryTable').append(
-        `<tr>
-        <td>${addEmployee.firstName}</td>
-        <td>${addEmployee.lastName}</td>
-        <td>${addEmployee.id}</td>
-        <td>${addEmployee.title}</td>
-        <td>$${addEmployee.annualSalary }</td>
-        <td><button class="deleteButton">Delete</button></td>
-    </tr>`
-    )
+}
+    function renderTable(tableDataToRender){
+        $('#salaryTable').empty();
+        for (let employee of tableDataToRender){
+            let newEmployeeTableRow =
+            `<tr>
+            <td>${employee.firstName}</td>
+            <td>${employee.lastName}</td>
+            <td>${employee.id}</td>
+            <td>${employee.title}</td>
+            <td>$${employee.annualSalary }</td>
+            <td><button class="deleteButton">Delete</button></td>
+        </tr>`;
+//append all employees information to the DOM
+            $('#salaryTable').append(newEmployeeTableRow);
+        }
+    }
 
-//Calculate Monthly Salaray using stored employees information.
-//append monthly salary to the DOM (employee table)
+    function renderTotalSalary(){
+        let totalSalary = calculateTotalSalary();
+        $('#monthlyTotalSalary').text(`${totalSalary}`);
+    }
 
-let el = $('.calculateTotal');
-el.empty();
-el.append(totalSalary);
 
-$('#firstName').val('');
-$('#firstName').val('');
-$('#id').val('');
-$('#title').val('');
-$('#annualSalary').val('');
-
-//Prevent the form submit default, use: event.preventDefault();
-
+//Calculate Monthly Salaray using stored employees salary information.
+    function calculateTotalSalary() {
+        let totalSalary = 0;
+        for (employee of employees){
+            totalSalary += (employee.annualSalary/12);
 //if total monthly cost exceeds $20,000, add a red background!
-
-    if (20000 < totalSalary) {
-        $(".calculateTotal").css('background-color', 'red');
+         if ( totalSalary > 20000 ) {
+                $('h4').css('background-color', 'red');
+            }
+        }
+        totalSalary = totalSalary.toFixed(2)
+        return totalSalary;
     }
-}   
 
+// Fucntion delete=button to delete employee from table
+    function deleteNewEmployee() {
+        console.log("Delete Button is working!");
+        let employeeID = $(this).parent().parent().attr('id');
+        console.log(employeedID);
+        employeeID = (employeeID);
+        console.log(employeeID);
+        $(this).parent().parent().remove();
+        let index = employees.findIndex(function (employee) {
+            return employee.id === employeeID;
+        });
+        employees.splice(index, 1);
+        renderTable(employees);
+    }
+
+        renderTotalSalary();
