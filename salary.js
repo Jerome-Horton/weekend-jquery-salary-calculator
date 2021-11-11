@@ -3,8 +3,8 @@ console.log('JQ');
 
 function readyNow(){
     $('#submitButton').on('click', newInfo);
-    $('#salaryTable').on('click', '.deleteButton', deleteInfo);
-
+    $('#salaryTable').on('click', '.deleteButton', deleteEmployeeInfo);
+    $('#calculateTotal').on('click', '.annualSalary', deleteEmployeeInfo);
 }
 
 let totalSalary = [80000, 58000, 48000];
@@ -18,10 +18,10 @@ function newInfo(event){
         lastName: $('#lastName').val(),
         id: $('#id').val(),
         title: $('#title').val(),
-        annaulSalary: Number($('#annaulSalary').val()) 
+        annualSalary: Number($('#annualSalary').val()) 
     }
 // Push the salary information from input fields to the array to calculate total monthly income.
-    totalSalary.push(addEmployee.annaulSalary);
+    totalSalary.push(addEmployee.annualSalary);
 
 //Append submit button to calculate monthly salary &
 //append all employees information to the DOM (employee table)
@@ -31,7 +31,7 @@ function newInfo(event){
         <td>${addEmployee.lastName}</td>
         <td>${addEmployee.id}</td>
         <td>${addEmployee.title}</td>
-        <td>$${addEmployee.annaulSalary }</td>
+        <td>$${addEmployee.annualSalary }</td>
         <td><button class="deleteButton">Delete</button></td>
     </tr>`
     )
@@ -39,6 +39,15 @@ function newInfo(event){
 //Calculate Monthly Salaray using stored employees information.
 //append monthly salary to the DOM (employee table)
 
+let el = $('.calculateTotal');
+el.empty();
+el.append(totalSalary);
+
+$('#firstName').val('');
+$('#firstName').val('');
+$('#id').val('');
+$('#title').val('');
+$('#annualSalary').val('');
 
 //Prevent the form submit default, use: event.preventDefault();
 
