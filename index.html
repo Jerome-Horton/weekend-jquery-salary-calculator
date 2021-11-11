@@ -15,8 +15,8 @@
         <input id="firstName" type="text" placeholder="First Name"/>
         <input id="lastName"  type="text" placeholder="Last Name"/>
         <input id="id" type="text" placeholder="ID"/>
-        <input id="title" type="number" placeholder="Title"/>
-        <input id="annaulSalary" type="number" placeholder="Annaul Salary"/>
+        <input id="title" type="text" placeholder="Title"/>
+        <input id="annualSalary" type="number" placeholder="Annual Salary"/>
         <button id="submitButton">Submit</button>
         <h3>Employees</h3>
         <table>
@@ -29,31 +29,14 @@
                     <th>Annaul Salary</th>
                 </tr> 
             </thead>
-            <p></p>
             <tbody id="salaryTable">
                 <tr>
-                    <td>Jen</td>
-                    <td>Barber</td>
-                    <td>4521</td>
-                    <td>Team Lead</td>
-                    <td>$80,000</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td><button class="deleteButton">Delete</button></td>   
-                </tr>
-                <tr>
-                    <td>Maurice</td>
-                    <td>Moss</td>
-                    <td>8724</td>
-                    <td>Support Team</td>
-                    <td>$58,000</td>
-                    <td><button class="deleteButton">Delete</button></td>   
-                </tr>
-                <tr>
-                    <td>Roy</td>
-                    <td>Smith</td>
-                    <td>9623</td>
-                    <td>Quality Assurance</td>
-                    <td>$48,000</td>
-                    <td><button class="deleteButton">Delete</button></td>  
                 </tr>
             </tbody>
             <tfoot> 
@@ -61,6 +44,6 @@
             </tfoot>
         </table>
         <h3>Employees Monthly Total Salary</h3>
-        <h4 id="MonthlyTotalSalary"></h4>
+        <h4 id="MonthlyTotalSalary">$<span id="total-monthly"></span></h4>
     </body>
 </html>

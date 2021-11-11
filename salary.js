@@ -17,14 +17,14 @@ function employeeTable(){
     let lastName = $('#lastName').val();
     let id = $('#id').val();
     let title = $('#title').val();
-    let annualSalary = $('#annualSalary').val();
+    let annualSalary = Number($('#annualSalary').val());
 
     let addEmployee = {
         firstName: firstName,
         lastName: lastName,
         id: id,
         title: title,
-        annualSalary:Number(annualSalary)  
+        annualSalary:annualSalary
     }
 // Push employee information from input fields to the array
     employees.push(addEmployee);
@@ -34,7 +34,6 @@ function employeeTable(){
     $('#title').val('');
     $('#annualSalary').val('');
 // declared functions to render table, calculate salary, and establish total salary.
-    calculateTotalSalary(totalSalary)
     renderTable(employees)
     renderTotalSalary()
 
@@ -58,7 +57,7 @@ function employeeTable(){
 
     function renderTotalSalary(){
         let totalSalary = calculateTotalSalary();
-        $('#monthlyTotalSalary').text(`${totalSalary}`);
+        $('#total-monthly').text(`${totalSalary}`);
     }
 
 
@@ -91,4 +90,4 @@ function employeeTable(){
         renderTable(employees);
     }
 
-        renderTotalSalary();
+renderTotalSalary();
