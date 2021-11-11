@@ -53,6 +53,8 @@ $('#annualSalary').val('');
 
 //if total monthly cost exceeds $20,000, add a red background!
 
-
+    if (20000 < totalSalary) {
+        $(".calculateTotal").css('background-color', 'red');
+    }
 }   
 
